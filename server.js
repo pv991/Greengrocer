@@ -15,13 +15,13 @@ dotenv.config();
 
 //database config
 connectDB();
+//esmoudle 6
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // rest object (add functionality for exprees in this)
 const app = express();
 
-//esmoudle 6
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 //middleware
 app.use(cors());
