@@ -14,8 +14,12 @@ import {fileURLToPath} from 'url';
 dotenv.config();
 
 //database config
-connectDB();
-//esmoudle 6
+connectDB().then(() => {
+    console.log("db connected");
+    app.listen(port, () => {
+        console.log("listening for requests");
+    })
+})//esmoudle 6
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
