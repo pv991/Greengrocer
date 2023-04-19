@@ -16,8 +16,6 @@ dotenv.config();
 //database config
 connectDB().then(() => {
     console.log("db connected");
-    app.listen(port, () => {
-        console.log("listening for requests");
     })
 })
 })//esmoudle 6
