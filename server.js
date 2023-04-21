@@ -9,14 +9,21 @@ import cors from "cors";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import path from "path";
+import {fileURLToPath} from 'url';
 //configure env
 dotenv.config();
 
 //database config
-connectDB();
+connectDB().then(() => {
+  console.log("db connected");
+});
+//esmoudle 6
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // rest object (add functionality for exprees in this)
 const app = express();
+
 
 //middleware
 app.use(cors());
@@ -40,11 +47,11 @@ app.use("*", function (req, res) {
 // });
 
 //port
-const PORT = process.env.PORT || 8080;
+const PORT =  8080;
 
 //run listen
 app.listen(PORT, () => {
   console.log(
-    `Server Running on ${process.env.DEV_MODE} on port ${PORT}`.bgGreen.white
+    `Server Running on  on port ${PORT}`.bgGreen.white
   );
 });
